@@ -127,16 +127,24 @@
       </div>
       
       <div class="column has-text-centered">
-        <video id="video2" controls width="100%" controls controlsList="nodownload"></video>
+        <video id="video2" controls width="100%" controls controlsList="nodownload" oncontextmenu="return false"></video>
         <p class="mt-2">视频2的注释</p>
         <script>
-          fetch("./static/videos/2.mp4")
-          .then(response => response.blob())
+          fetch("static/videos/1.mp4")  
+          .then(response => {
+          if (!response.ok) {
+          throw new Error("Video not found");
+          }
+          return response.blob();
+          })
           .then(videoBlob => {
           const videoURL = URL.createObjectURL(videoBlob);
-          document.getElementById("video2").src = videoURL;
+          document.getElementById("video1").src = videoURL;
+          })
+          .catch(error => {
+          console.error("Failed to load video:", error);
           });
-        </script>
+          </script>
       </div>
     </div>
 
