@@ -81,7 +81,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            摘要内容
+            Object search is an essential skill for Persistent in-home agents. However, this task is highly challenging due to the implicit expression of humans and the open-ended environment. Previous methods either focus on single-run exploration, which are ill-suited for persistent in-home agents, or depend on rigid language templates and additional semantic modeling , limiting adaptability. To address this challenge, this paper introduces What\&Where, a method that leverages Vision Language Models (VLMs) to equip the agent with a cognitive perspective on what to search and where to search. What\&Where primarily consists of two core components. The "what" component incorporates external knowledge to generate entity images related to the instruction and extract their common functional attributes, enabling a multimodal understanding of intent. The "where" component predicts the exploration zone from an accessible top-view and adjust in response to planning feedback. Finally, guided by "where" component and measured by "what" component, the agent alternately observes, reasons, and acts to perform local planning. Experiments on the ProcTHOR simulation platform demonstrate state-of-the-art performance, while real-world results highlight the strong transferability of our approach.
           </p>
         </div>
       </div>
@@ -95,8 +95,9 @@
         <h2 class="title is-3">Approach</h2>
         <div class="content has-text-justified">
           <p>
-            方法
+            In the "what" path, the VLM acts as an imaginator and generates entity-associated images by prompting with external commonsense knowledge. Their functional attributes are then summarized to interpret the instruction. In the "where" path, the VLM acts as an explorer and infers the task-relevant exploration zone from the top-down map through a chain-of-question reasoning process. Finally, the VLM acts as an exploiter, leveraging both “what” and “where” reasoning to select the optimal cell and viewing direction, iteratively exploring until the FINISH output. During this process, each NEXT action updates the exploration zone.
           </p>
+          <img src="framework.png" alt="framework" style="max-width:100%; height:auto;">
         </div>
       </div>
     </div>
