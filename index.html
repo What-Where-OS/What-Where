@@ -125,12 +125,18 @@
         </video>
         <p class="mt-2">视频1的注释</p>
       </div>
+      
       <div class="column has-text-centered">
-        <video controls width="100%">
-          <source src="./static/videos/2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        <video id="video2" controls width="100%"></video>
         <p class="mt-2">视频2的注释</p>
+        <script>
+          fetch("./static/videos/2.mp4")
+          .then(response => response.blob())
+          .then(videoBlob => {
+          const videoURL = URL.createObjectURL(videoBlob);
+          document.getElementById("video2").src = videoURL;
+          });
+        </script>
       </div>
     </div>
 
